@@ -42,7 +42,7 @@ Para instalar y ejecutar el proyecto, sigue estos pasos:
 
 2. **Frontend**
 
-   - Muevete al directorio `frontend`:
+   - En un nuevo terminal muevete al directorio `frontend`:
 
      ```sh
      cd frogmi-frontend
