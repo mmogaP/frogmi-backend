@@ -28,6 +28,12 @@ Para instalar y ejecutar el proyecto, sigue estos pasos:
      rails db:migrate
      ```
 
+   - Ejecuta las semillas para poblar la base de datos y para obtener los datos sísmicos de los últimos 30 días:
+
+     ```sh
+     rake earthquake:fetch
+     ```
+
    - Inicia el servidor de Rails:
 
      ```sh
@@ -35,6 +41,12 @@ Para instalar y ejecutar el proyecto, sigue estos pasos:
      ```
 
 2. **Frontend**
+
+   - Muevete al directorio `frontend`:
+
+     ```sh
+     cd frogmi-frontend
+     ```
 
    - Instala las dependencias de Node.js:
 
