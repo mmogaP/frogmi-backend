@@ -1,6 +1,6 @@
 class EarthquakesController < ApplicationController
   def index
-    @earthquakes = Earthquake.page(params[:page]).per(10)
+    @earthquakes = Earthquake.page(params[:page]).per(12)
 
     render json: {
       data: @earthquakes.map do |earthquake|

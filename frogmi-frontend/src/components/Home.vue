@@ -14,6 +14,11 @@
       <a :href="feature.links.external_url" class="text-blue-500" target="_blank">External Link</a>
     </div>
   </div>
+  <div class="flex justify-between items-center bg-gray-800 text-white p-4 mt-4">
+    <button class="bg-green-900 hover:bg-green-500text-white font-bold py-2 px-4 rounded" v-if="pagination.current_page > 1" @click="fetchData(pagination.current_page - 1)">Anterior</button>
+    <span class="text-white">Página {{ pagination.current_page }} de {{ pagination.total }}</span>
+    <button class="bg-green-900 hover:bg-green-500text-white font-bold py-2 px-4 rounded" v-if="pagination.current_page < pagination.total" @click="fetchData(pagination.current_page + 1)">Siguiente</button>
+  </div>
 </template>
 
 <script>
@@ -23,12 +28,17 @@ export default {
   data() {
     return {
       features: [],
-        };
+      pagination: {
+          current_page: 1,
+          total: 1,
+        },
+      };
     },
     methods: {
-        async fetchData() {
-        const response = await axios.get('http://localhost:3000/features');
+        async fetchData(page = 1) {
+        const response = await axios.get(`http://localhost:3000/features?page=${page}`);
         this.features = response.data.data;
+        this.pagination = response.data.pagination;
         },
     },
     mounted() {
