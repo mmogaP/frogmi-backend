@@ -55,6 +55,7 @@ export default {
     async fetchData(page = 1) {
       const response = await axios.get(`http://localhost:3000/features?page=${page}`);
       this.features = response.data.data;
+      console.log(response.data);
       this.pagination = response.data.pagination;
     },
     async addComment(featureId, commentBody) {

@@ -1,24 +1,56 @@
-# README
+# InfoSismos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Descripción
 
-Things you may want to cover:
+InfoSismos es una aplicación web que ofrece a los usuarios acceso a información sísmica de los últimos 30 días, obtenida del sitio USGS (Servicio Geológico de los Estados Unidos). Además, permite a los usuarios dejar comentarios sobre los eventos sísmicos. Este proyecto está desarrollado utilizando Ruby on Rails para el backend y Vue.js para el frontend.
 
-* Ruby version
+## Instalación
 
-* System dependencies
+Para instalar y ejecutar el proyecto, sigue estos pasos:
 
-* Configuration
+1. **Backend**
 
-* Database creation
+   - Instala las dependencias de Ruby:
 
-* Database initialization
+     ```sh
+     bundle install
+     ```
 
-* How to run the test suite
+   - Crea la base de datos:
 
-* Services (job queues, cache servers, search engines, etc.)
+     ```sh
+     rails db:create
+     ```
 
-* Deployment instructions
+   - Ejecuta las migraciones:
 
-* ...
+     ```sh
+     rails db:migrate
+     ```
+
+   - Inicia el servidor de Rails:
+
+     ```sh
+     rails server
+     ```
+
+2. **Frontend**
+
+   - Instala las dependencias de Node.js:
+
+     ```sh
+     npm install
+     ```
+
+   - Inicia el servidor de desarrollo:
+
+     ```sh
+     npm run dev
+     ```
+
+## Contacto
+
+- **Mauricio Moraga**
+- Email: mmoraga.m3@gmail.com
+- Instagram: @tech_mmoraga
+- LinkedIn: [mm0raga](https://www.linkedin.com/in/mm0raga)

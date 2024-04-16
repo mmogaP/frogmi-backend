@@ -4,7 +4,10 @@ class EarthquakesController < ApplicationController
     render json: earthquake.as_json(include: :comments)
   end
   def index
+    earthquakes = Earthquake.all
+    earthquakes = earthquakes.where(magType: params[:filters][:mag_type]) if params[:filters]&.[](:mag_type)
     @earthquakes = Earthquake.page(params[:page]).per(12)
+    per_page = [params[:per_page].to_i, 1000].min
 
     render json: {
       data: @earthquakes.map do |earthquake|

@@ -1,4 +1,9 @@
 class CommentsController < ApplicationController
+  def index
+    earthquake = Earthquake.find(params[:feature_id])
+    comments = earthquake.comments
+    render json: comments
+  end
   def create
     earthquake = Earthquake.find(params[:feature_id])
     comment = earthquake.comments.build(comment_params)
