@@ -67,4 +67,4 @@ Para instalar y ejecutar el proyecto, sigue estos pasos:
 - Instagram: @tech_mmoraga
 - LinkedIn: [mm0raga](https://www.linkedin.com/in/mm0raga)
 
-![Imagen del proyecto](ruta/de/la/imagen.jpg)
+![Imagen del proyecto](./public/project.jpg)
