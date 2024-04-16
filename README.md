@@ -66,3 +66,5 @@ Para instalar y ejecutar el proyecto, sigue estos pasos:
 - Email: mmoraga.m3@gmail.com
 - Instagram: @tech_mmoraga
 - LinkedIn: [mm0raga](https://www.linkedin.com/in/mm0raga)
+
+![Imagen del proyecto](ruta/de/la/imagen.jpg)
