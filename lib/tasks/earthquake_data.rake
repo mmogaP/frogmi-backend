@@ -2,24 +2,28 @@
 namespace :earthquake do
   desc 'Obtener datos de terremotos y almacenarlos en la base de datos'
   task fetch: :environment do
-  response = HTTParty.get('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson')
-  features = response.parsed_response['features']
+    url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson'
+    response = HTTParty.get(url)
+    data = JSON.parse(response.body)
 
-    features.each do |feature|
+    data['features'].each do |feature|
       properties = feature['properties']
-      geometry = feature['geometry']
+      coordinates = feature['geometry']['coordinates']
 
-      Earthquake.find_or_create_by(external_id: feature['id']) do |earthquake|
-        earthquake.magnitude = properties['mag']
-        earthquake.place = properties['place']
-        earthquake.time = Time.at(properties['time'] / 1000)
-        earthquake.url = properties['url']
-        earthquake.tsunami = properties['tsunami'] == 1
-        earthquake.magType = properties['magType']
-        earthquake.title = properties['title']
-        earthquake.longitude = geometry['coordinates'][0]
-        earthquake.latitude = geometry['coordinates'][1]
-      end
+      Earthquake.create(
+        external_id: feature['id'],
+        magnitude: properties['mag'],
+        place: properties['place'],
+        time: Time.at(properties['time'] / 1000), # Convert UNIX timestamp to Ruby Time object
+        external_url: properties['url'],
+        tsunami: properties['tsunami'],
+        mag_type: properties['magType'],
+        title: properties['title'],
+        longitude: coordinates[0],
+        latitude: coordinates[1]
+      )
     end
+
+    puts 'Earthquake data fetched and persisted successfully!'
   end
 end
