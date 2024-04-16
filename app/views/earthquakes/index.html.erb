@@ -1,0 +1,12 @@
+<h1>Últimos 30 terremotos</h1>
+
+<ul>
+  <% @earthquakes.each do |earthquake| %>
+    <li>
+      <strong>Magnitud:</strong> <%= earthquake.magnitude %><br>
+      <strong>Ubicación:</strong> <%= earthquake.place %><br>
+      <strong>Fecha y hora:</strong> <%= earthquake.time %><br>
+      <strong>URL:</strong> <%= link_to "Ver detalle", earthquake.external_url %>
+    </li>
+  <% end %>
+</ul>
