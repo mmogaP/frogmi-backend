@@ -1,4 +1,8 @@
 class EarthquakesController < ApplicationController
+  def show
+    earthquake = Earthquake.includes(:comments).find(params[:id])
+    render json: earthquake.as_json(include: :comments)
+  end
   def index
     @earthquakes = Earthquake.page(params[:page]).per(12)
 

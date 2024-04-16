@@ -12,4 +12,10 @@ Rails.application.routes.draw do
   # Defines the route for the EarthquakesController#index action
   get 'features', to: 'earthquakes#index'
 
+  resources :features do
+    resources :comments, only: [:create]
+  end
+
+  resources :earthquakes, only: [:show]
+
 end

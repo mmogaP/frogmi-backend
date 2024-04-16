@@ -12,11 +12,11 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_04_16_004142) do
   create_table "comments", force: :cascade do |t|
-    t.integer "feature_id", null: false
+    t.integer "earthquake_id", null: false
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["feature_id"], name: "index_comments_on_feature_id"
+    t.index ["earthquake_id"], name: "index_comments_on_earthquake_id"
   end
 
   create_table "earthquakes", force: :cascade do |t|
@@ -34,5 +34,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_16_004142) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "comments", "features"
+  add_foreign_key "comments", "earthquakes"
 end
